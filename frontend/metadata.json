@@ -1,0 +1,7 @@
+{
+  "name": "Fishifox CRM & Project Management System V2",
+  "description": "A comprehensive CRM and PM system for IT service providers featuring recurring invoicing, service expiration tracking, and secure document management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

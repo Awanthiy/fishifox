@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   THEME + ACCENT VARIABLES
+   ========================= */
+:root {
+  /* Accent tokens */
+  --primary: 75 73 172;     /* #4B49AC (purple default) */
+  --secondary: 255 142 60;  /* orange */
+
+  /* Surfaces */
+  --background: 248 250 252; /* #f8fafc */
+  --foreground: 47 47 47;    /* #2f2f2f */
+
+  /* Layout surfaces */
+  --panel-bg: #F5F7FF;
+
+  /* Sidebar */
+  --sidebar-bg: rgb(var(--primary));
+  --sidebar-text: rgba(255, 255, 255, 0.7);
+
+  --sidebar-active-bg: #f5f7ff;
+  --sidebar-active-text: rgb(var(--primary));
+}
+
+/* Dark mode */
+.dark {
+  --background: 15 23 42;     /* #0f172a */
+  --foreground: 226 232 240;  /* #e2e8f0 */
+
+  --panel-bg: #0b1220;
+
+  --sidebar-bg: #020617; /* slate-950 */
+  --sidebar-text: rgba(226, 232, 240, 0.75);
+
+  --sidebar-active-bg: #1e293b; /* slate-800 */
+  --sidebar-active-text: rgb(var(--primary));
+}
+
+/* =========================
+   ACCENT COLORS
+   ========================= */
+html[data-accent="purple"] { --primary: 75 73 172; }  /* #4B49AC */
+html[data-accent="teal"]   { --primary: 75 219 226; } /* #4BDBE2 */
+html[data-accent="slate"]  { --primary: 51 65 85; }   /* #334155 */
+
+/* =========================
+   BASE
+   ========================= */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  margin: 0;
+  padding: 0;
+}
+
+.font-logo {
+  font-family: "Playfair Display", serif;
+}
+
+.mindskills-shadow {
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+/* =========================
+   SIDEBAR ACTIVE LINK SHAPES
+   ========================= */
+.sidebar-link-active {
+  background-color: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text) !important;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  position: relative;
+  margin-left: 1rem;
+}
+.sidebar-link-active::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2rem;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border-bottom-right-radius: 1.5rem;
+}
+.sidebar-link-active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -2rem;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border-top-right-radius: 1.5rem;
+}
+
+/* Reduced motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  transition: none !important;
+  animation: none !important;
+  scroll-behavior: auto !important;
+}

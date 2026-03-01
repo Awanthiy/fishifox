@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fishifox CRM | V2</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "rgb(var(--primary) / <alpha-value>)",
+              secondary: "rgb(var(--secondary) / <alpha-value>)",
+              brand: "rgb(var(--brand) / <alpha-value>)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* =========================
+         THEME VARIABLES (LIGHT)
+         ========================= */
+      :root {
+        --primary: 75 73 172;     /* purple */
+        --secondary: 255 142 60;  /* orange */
+        --brand: 121 120 233;
+
+        /* Sidebar vars */
+        --sidebar-bg: #4b49ac;
+        --sidebar-text: rgba(255, 255, 255, 0.7);
+        --sidebar-active-bg: #f5f7ff;
+        --sidebar-active-text: rgb(var(--primary));
+      }
+
+      /* =========================
+         THEME VARIABLES (DARK)
+         IMPORTANT: uses .dark ✅
+         ========================= */
+      .dark {
+        --sidebar-bg: #020617;           /* slate-950 */
+        --sidebar-text: rgba(226, 232, 240, 0.75);
+        --sidebar-active-bg: #1e293b;    /* slate-800 */
+        --sidebar-active-text: rgb(var(--primary));
+      }
+
+      /* =========================
+         ACCENT COLORS
+         ========================= */
+      html[data-accent="purple"] { --primary: 75 73 172; }
+      html[data-accent="teal"]   { --primary: 75 219 226; }
+      html[data-accent="slate"]  { --primary: 51 65 85; }
+
+      /* =========================
+         BASE (your existing)
+         ========================= */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc;
+        color: #2f2f2f;
+        margin: 0;
+        padding: 0;
+      }
+      .dark body {
+        background-color: #0f172a; /* slate-900 */
+        color: #e2e8f0;            /* slate-200 */
+      }
+
+      .font-logo {
+        font-family: "Playfair Display", serif;
+      }
+      .mindskills-shadow {
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+
+      /* =========================
+         ACTIVE LINK + CURVE TRIANGLES
+         NOW uses vars ✅
+         ========================= */
+      .sidebar-link-active {
+        background-color: var(--sidebar-active-bg);
+        color: var(--sidebar-active-text) !important;
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        position: relative;
+        margin-left: 1rem;
+      }
+
+      .sidebar-link-active::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -2rem;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border-bottom-right-radius: 1.5rem;
+        box-shadow: 1rem 1rem 0 0 var(--sidebar-active-bg);
+      }
+
+      .sidebar-link-active::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -2rem;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border-top-right-radius: 1.5rem;
+        box-shadow: 1rem -1rem 0 0 var(--sidebar-active-bg);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-in { animation: fadeIn 0.5s ease-out forwards; }
+
+      .reduce-motion *,
+      .reduce-motion *::before,
+      .reduce-motion *::after {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
